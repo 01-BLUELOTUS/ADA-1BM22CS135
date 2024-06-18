@@ -11,5 +11,8 @@
 <h1>LABORATORY PROGRAM-6</h1>
 <h3>Sort a given set of N integer elements using Merge Sort technique and
 compute its time taken. Run the program for different values of N and record
-the time taken to sort.
-</h3>
+the time taken to sort.</h3>
+<h1>LABORATORY PROGRAM-7</h1>
+<h3>Sort a given set of N integer elements using Quick Sort technique and compute its time taken.</h3>
+<h1>LABORATORY PROGRAM-8</h1>
+<h3>Sort a given set of N integer elements using Heap Sort technique and compute its time taken.</h3>
