@@ -16,3 +16,7 @@ the time taken to sort.</h3>
 <h3>Sort a given set of N integer elements using Quick Sort technique and compute its time taken.</h3>
 <h1>LABORATORY PROGRAM-8</h1>
 <h3>Sort a given set of N integer elements using Heap Sort technique and compute its time taken.</h3>
+<h1>LABORATORY PROGRAM-10(A)</h1>
+<h3>Implement All Pair Shortest paths problem using Floyd’s algorithm.</h3>
+<h1>LABORATORY PROGRAM-10(B)</h1>
+<h3>Implement Warshall’s algorithm.</h3>
