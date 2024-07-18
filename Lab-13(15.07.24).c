@@ -19,7 +19,7 @@ int main() {
     dijkstras(cost, s);
     printf("Path:\n");
     for (i = 1; i < n; i++) {
-        printf("(%d, %d) with weight %d ", result[i][0], result[i][1], weight[result[i][1]]);
+        printf("(%d, %d) with weight %d, ", result[i][0], result[i][1], weight[result[i][1]]);
     }
     return 0;
 }
