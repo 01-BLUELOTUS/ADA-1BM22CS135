@@ -51,5 +51,13 @@ int main() {
     heapSort(arr, n);
     end=clock();
 
+        if(n<=50)
+    {
+        printf("Heap Sorted array:\n");
+        for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+        printf("\n");
+    }
+
     printf("\nTime taken: %fs\n",((double)(end-start))/CLOCKS_PER_SEC);
 }
