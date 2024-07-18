@@ -44,7 +44,7 @@ int main() {
     item arr[n];
     printf("Enter profits and weights for each item:\n");
     for (int i = 0; i < n; i++) {
-        scanf("%d %d", &arr[i].profit, &arr[i].weight);
+        scanf("%d %d, ", &arr[i].profit, &arr[i].weight);
     }
     int W;
     printf("Enter the maximum weight of the knapsack: ");
