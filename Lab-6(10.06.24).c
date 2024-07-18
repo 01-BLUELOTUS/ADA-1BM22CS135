@@ -2,9 +2,9 @@
 #include<stdlib.h>
 #include<time.h>
 
-void Merge(int a[], int low, int mid, int high) {
+void Merge(int a[], int low, int mid, int high, int n) {
     int i, j, k;
-    int b[100];
+    int b[n];
     i = low;
     j = mid + 1;
     k = low;
@@ -26,38 +26,39 @@ void Merge(int a[], int low, int mid, int high) {
     }
 }
 
-void mergeSort(int a[], int low, int high){
+void mergeSort(int a[], int low, int high, int n){
     if(low<high){
         int mid=(low+high)/2;
-        mergeSort(a,low,mid);
-        mergeSort(a,mid+1,high);
-        Merge(a,low,mid,high);
+        mergeSort(a,low,mid,n);
+        mergeSort(a,mid+1,high,n);
+        Merge(a,low,mid,high,n);
     }
 
 }
 
 int main() {
-    int a[20], i, n;
+    int i, n;
     clock_t start, end;
 
-    printf("Enter the size of the array:\n");
+    printf("Enter the size of the array:");
     scanf("%d", &n);
-    printf("Enter the array elements:\n");
-    for (i = 0; i < n; i++) {
-        scanf("%d", &a[i]);
-    }
-
-    start = clock();
-    mergeSort(a, 0,n-1);
+    int a[n];
+    srand(time(NULL));
+    for (int i=0;i<n;i++)
+        a[i]=rand()%100;
+    start=clock();
+    mergeSort(a, 0,n-1, n);
     end = clock();
 
-    printf("Array elements after sorting:\n");
-    for (i = 0; i < n; i++) {
-        printf("%d\t", a[i]);
+    if(n<=50)
+    {
+        printf("Sorted array:\n");
+        for (int i = 0; i < n; i++)
+        printf("%d ", a[i]);
+        printf("\n");
     }
 
-    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC * 1000;
-    printf("\nTime taken by merge sort: %0.3f milliseconds", time_taken);
+    printf("\nTime taken:%f",((double)(end - start)) / CLOCKS_PER_SEC);
 
     return 0;
 }
