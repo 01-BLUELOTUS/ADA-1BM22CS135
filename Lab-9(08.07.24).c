@@ -1,4 +1,71 @@
 #include <stdio.h>
+
+int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+void main() {
+    int n, w;
+    printf("Enter the number of items: ");
+    scanf("%d", &n);
+    printf("Enter the Weight Capacity: ");
+    scanf("%d", &w);
+
+    int weight[n], value[n];
+    for (int i = 0; i < n; i++) {
+        printf("Enter the weight and value of item %d: ", i + 1);
+        scanf("%d %d", &weight[i], &value[i]);
+    }
+
+    int m[n + 1][w + 1];
+
+    // Initialize the DP table
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= w; j++) {
+            if (i == 0 || j == 0)
+                m[i][j] = 0;
+            else {
+                if (j - weight[i - 1] >= 0)
+                    m[i][j] = max(m[i - 1][j], value[i - 1] + m[i - 1][j - weight[i - 1]]);
+                else
+                    m[i][j] = m[i - 1][j];
+            }
+        }
+    }
+
+    // Print the DP table
+    printf("\nDP Table:\n");
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= w; j++) {
+            printf("%d\t", m[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Backtracking to find the selected items
+    int maxVal = m[n][w];
+    printf("\nMaximum value possible: %d\n", maxVal);
+
+    int val = maxVal, weigh = w;
+    for (int i = n; i > 0 && val > 0; i--) {
+        if (val != m[i - 1][weigh]) { // Item i was included
+            printf("Selected item %d\tweight: %d\tvalue: %d\n", i, weight[i - 1], value[i - 1]);
+            val -= value[i - 1];
+            weigh -= weight[i - 1];
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
 #include <stdlib.h>
 
 int max(int a, int b) {
